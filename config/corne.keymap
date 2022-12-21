@@ -33,7 +33,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp TAB    &kp F1       &kp F2       &kp F3       &kp F4       &kp F5         &kp F6   &kp F7   &kp F8 &kp F9    &kp F10 &kp F11
-   &bt BT_CLR &kp N1       &kp N2       &kp N3       &kp N4       &bt N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp F12
+   &bt BT_CLR &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp F12
    &kp LSHFT  &trans       &trans       &trans       &trans       &kp MINUS      &kp UNDER   &kp EQUAL   &kp PLUS &kp LBKT    &kp RBKT &trans
                           	        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp LALT
                         >;
