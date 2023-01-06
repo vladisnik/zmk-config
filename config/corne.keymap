@@ -31,8 +31,33 @@
                 , <&macro_release &kp LCTRL &kp LSHFT>
             ;
         };
+        csm: cmd_space {
+            label = "cmd_space";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            bindings
+                = <&macro_press &kp LGUI>
+                , <&macro_tap &kp SPACE>
+                , <&macro_release &kp LGUI>
+            ;
+        };
+
     };
 };
+
+/ {
+    behaviors {
+        ecst: esc_macro {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ESCAPE_MACRO_CMD_SPACE";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp ESC>, <&csm>;
+        };
+    };
+
 
 / {
         keymap {
@@ -40,12 +65,12 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC      |  Q  |  W  |  E  |  R  |  T  |----|  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | SHFT/TAB |  A  |  S  |  D  |  F  |  G  |----|  H  |  J   |  K  |  L  |  ;  | '    |
-// | CTRL     |  Z  |  X  |  C  |  V  |  B  |----|  N  |  M   |  ,  |  .  |  /  | "    |
-//                        | CMD | SPC | LWR |----| RSE | ENT  | ALT |
+// | ESC/CMD+SPC |  Q  |  W  |  E  |  R  |  T  |----|  Y  |  U   |  I  |  O  |  P  | BKSP |
+// | SHFT/TAB    |  A  |  S  |  D  |  F  |  G  |----|  H  |  J   |  K  |  L  |  ;  | '    |
+// | CTRL        |  Z  |  X  |  C  |  V  |  B  |----|  N  |  M   |  ,  |  .  |  /  | "    |
+//                           | CMD | SPC | LWR |----| RSE | ENT  | ALT |
                         bindings = <
-   &kp ESC       &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &ecst         &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &mt LSHFT TAB &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
    &kp LCTRL     &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp DQT
                       &kp LGUI &kp SPACE &mo 1   &mo 2 &kp RET &kp LALT
@@ -53,10 +78,10 @@
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// | MACRO/ESC | 1    | 2    | 3    | 4 | 5 |----| 6 | 7 | 8 | 9 | 0 | DEL |
-// | SHFT/TAB  | !    | @    | #    | $ | % |----| ^ | & | * | ( | ) | `   |
-// | CTRL(t)   | Z(t) | X(t) | C(t) | + | - |----| _ | = | < | > | \ | ~   |
-//               | GUI(t) | SPC(t) | LWR(t) |----| RSE(t) | ENT(t) | ALT(t) |
+// | CTRL+SHFT+TAB | 1    | 2    | 3    | 4 | 5 |----| 6 | 7 | 8 | 9 | 0 | DEL |
+// | SHFT/TAB      | !    | @    | #    | $ | % |----| ^ | & | * | ( | ) | `   |
+// | CTRL(t)       | Z(t) | X(t) | C(t) | + | - |----| _ | = | < | > | \ | ~   |
+//                   | GUI(t) | SPC(t) | LWR(t) |----| RSE(t) | ENT(t) | ALT(t) |
                         bindings = <
    &tbm          &kp N1   &kp N2 &kp N3   &kp N4    &kp N5       &kp N6    &kp N7    &kp N8          &kp N9     &kp N0        &kp DELETE
    &mt LSHFT TAB &kp EXCL &kp AT &kp HASH &kp DLLR  &kp PRCNT    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR   &kp RPAR      &kp GRAVE
