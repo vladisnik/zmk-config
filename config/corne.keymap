@@ -26,7 +26,9 @@
             wait-ms = <40>;
             tap-ms = <40>;
             bindings
-                = <&kp LCTRL &kp LSHFT &kp TAB>
+                = <&macro_press &kp LCTRL &kp LSHFT>
+                , <&macro_tap &kp TAB>
+                , <&macro_release &kp LCTRL &kp LSHFT>
             ;
         };
     };
