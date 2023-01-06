@@ -23,7 +23,7 @@
             label = "ctrl_shift_tab";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp LCTRL &kp LSHFT &TAB>;
+            bindings = <&kp LCTRL &kp LSHFT &kp TAB>;
         };
     };
 };
