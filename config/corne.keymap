@@ -18,6 +18,17 @@
 };
 
 / {
+    macros {
+        tbm: tab_back {
+            label = "ctrl_shift_tab";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL &kp LSHFT &TAB>;
+        };
+    };
+};
+
+/ {
         keymap {
                 compatible = "zmk,keymap";
 
@@ -36,12 +47,12 @@
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// | ESC      | 1    | 2    | 3    | 4 | 5 |----| 6 | 7 | 8 | 9 | 0 | DEL |
-// | SHFT/TAB | !    | @    | #    | $ | % |----| ^ | & | * | ( | ) | `   |
-// | CTRL(t)  | Z(t) | X(t) | C(t) | + | - |----| _ | = | < | > | \ | ~   |
-//              | GUI(t) | SPC(t) | LWR(t) |----| RSE(t) | ENT(t) | ALT(t) |
+// | MACRO/ESC | 1    | 2    | 3    | 4 | 5 |----| 6 | 7 | 8 | 9 | 0 | DEL |
+// | SHFT/TAB  | !    | @    | #    | $ | % |----| ^ | & | * | ( | ) | `   |
+// | CTRL(t)   | Z(t) | X(t) | C(t) | + | - |----| _ | = | < | > | \ | ~   |
+//               | GUI(t) | SPC(t) | LWR(t) |----| RSE(t) | ENT(t) | ALT(t) |
                         bindings = <
-   &kp ESC       &kp N1   &kp N2 &kp N3   &kp N4    &kp N5       &kp N6    &kp N7    &kp N8          &kp N9     &kp N0        &kp DELETE
+   &mt &tbm ESC  &kp N1   &kp N2 &kp N3   &kp N4    &kp N5       &kp N6    &kp N7    &kp N8          &kp N9     &kp N0        &kp DELETE
    &mt LSHFT TAB &kp EXCL &kp AT &kp HASH &kp DLLR  &kp PRCNT    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR   &kp RPAR      &kp GRAVE
    &trans        &trans   &trans &trans   &kp PLUS  &kp MINUS    &kp UNDER &kp EQUAL &kp LT          &kp GT     &kp BACKSLASH &kp TILDE
                                  &trans   &trans    &trans       &trans    &trans    &trans
