@@ -72,10 +72,10 @@
 // | CTRL(t) | END  | PGDWN | C(t) | {  | }   |----| [    | ]    | ,(t) | .(t)  | /(t) | "(t) |
 //                 | GUI(t) | SPC(t) | LWR(t) |----| RSE(t) | ENT(t) | ALT(t) |
                         bindings = <
-   &kp F1      &kp F2   &kp F3        &kp F4    &kp F5        &kp F6      &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
-   &mt ALT TAB &kp HOME &kp PAGE_UP   &kp COLON &kp SEMICOLON &kp PIPE    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans  &trans
-   &trans      &kp END  &kp PAGE_DOWN &trans    &kp LBRC      &kp RBRC    &kp LBKT &kp RBKT &trans &trans    &trans  &trans
-                    	                &trans    &trans        &trans      &trans   &trans   &trans
+   &kp F1       &kp F2   &kp F3        &kp F4    &kp F5        &kp F6      &kp F7   &kp F8   &kp F9 &kp F10   &kp F11 &kp F12
+   &mt LALT TAB &kp HOME &kp PAGE_UP   &kp COLON &kp SEMICOLON &kp PIPE    &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans  &trans
+   &trans       &kp END  &kp PAGE_DOWN &trans    &kp LBRC      &kp RBRC    &kp LBKT &kp RBKT &trans &trans    &trans  &trans
+                	                   &trans    &trans        &trans      &trans   &trans   &trans
                         >;
                 };
 
