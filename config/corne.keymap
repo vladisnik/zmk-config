@@ -23,6 +23,8 @@
             label = "ctrl_shift_tab";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings
                 = <&kp LCTRL>
                 , <&kp LSHFT>
