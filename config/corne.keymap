@@ -57,6 +57,7 @@
             bindings = <&kp ESC>, <&csm>;
         };
     };
+};
 
 
 / {
