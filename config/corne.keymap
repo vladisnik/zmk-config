@@ -112,7 +112,7 @@
 // |       |     |     |     |  |       |----|  |  |  |  |  |     |
 //                     |     |  |       |----|  |  |  |
                     bindings = <
-    &reset     &none        &none         &none        &none &bootloader    &none &none &none &none &none &reset
+    &sys_reset &none        &none         &none        &none &bootloader    &none &none &none &none &none &sys_reset
     &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &none &none          &none &none &none &none &none &none
     &none      &none        &none         &none        &none &none          &none &none &none &none &none &none
                                           &none        &none &none          &none &none &none
