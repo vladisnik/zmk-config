@@ -20,7 +20,7 @@
 
 / {
     macros {
-        tbm: tab_back {
+        tbb: tab_back {
             label = "ctrl_shift_tab";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -50,6 +50,18 @@
 
 / {
     behaviors {
+        shtb: shift_tab {
+            compatible = "zmk,behavior-mod-morph";
+            label = "shift_tab";
+            #binding-cells = <0>;
+            bindings = <&kp LCTRL>, <&kp LSHFT>;
+            mods = <(MOD_LGUI)>;
+        };
+    };
+};
+
+/ {
+    behaviors {
         ecst: esc_macro {
             compatible = "zmk,behavior-tap-dance";
             label = "ESCAPE_MACRO_CMD_SPACE";
@@ -74,7 +86,7 @@
                         bindings = <
    &ecst         &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
    &mt LSHFT TAB &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LCTRL     &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp DQT
+   &shtb         &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp DQT
                       &kp LGUI &kp SPACE &mo 1   &mo 2 &kp RET &kp LALT
                         >;
                 };
@@ -85,7 +97,7 @@
 // | CTRL(t)       | Z(t) | X(t) | C(t) | + | - |----| _ | = | < | > | \ | ~   |
 //                   | GUI(t) | SPC(t) | LWR(t) |----| RSE(t) | ENT(t) | ALT(t) |
                         bindings = <
-   &tbm          &kp N1   &kp N2 &kp N3   &kp N4    &kp N5       &kp N6    &kp N7    &kp N8          &kp N9     &kp N0        &kp DELETE
+   &tbb          &kp N1   &kp N2 &kp N3   &kp N4    &kp N5       &kp N6    &kp N7    &kp N8          &kp N9     &kp N0        &kp DELETE
    &mt LSHFT TAB &kp EXCL &kp AT &kp HASH &kp DLLR  &kp PRCNT    &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR   &kp RPAR      &kp GRAVE
    &trans        &trans   &trans &trans   &kp PLUS  &kp MINUS    &kp UNDER &kp EQUAL &kp LT          &kp GT     &kp BACKSLASH &kp TILDE
                                  &trans   &trans    &trans       &trans    &trans    &trans
