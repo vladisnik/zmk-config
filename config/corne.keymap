@@ -25,7 +25,7 @@
         combo_disable_game {
             timeout-ms = <50>;
             layers = <4>;
-            key-positions = <40 42>;
+            key-positions = <39 41>;
             bindings = <&tog GAME>;
         };
     };
