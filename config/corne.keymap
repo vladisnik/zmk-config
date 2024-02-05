@@ -20,6 +20,18 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_disable_game {
+            timeout-ms = <50>;
+            layers = <4>;
+            key-positions = <40 42>;
+            bindings = <&tog GAME>;
+        };
+    };
+};
+
+/ {
     macros {
         tbb: tab_back {
             label = "ctrl_shift_tab";
