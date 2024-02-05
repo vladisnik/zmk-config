@@ -7,6 +7,7 @@
 #define LOWER   1
 #define RAISE   2
 #define ADJUST  3
+#define GAME    4
 
 / {
     conditional_layers {
@@ -14,6 +15,18 @@
         adjust_layer {
             if-layers = <1 2>;
             then-layer = <3>;
+        };
+    };
+};
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_disable_game {
+            timeout-ms = <50>;
+            layers = <4>;
+            key-positions = <39 41>;
+            bindings = <&tog GAME>;
         };
     };
 };
@@ -120,15 +133,28 @@
 
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
-// | RST   |     |     |     |  |  BTLDR  |----|  | OUT_USB |  |  |  | RST |
-// | BTCLR | BT1 | BT2 | BT3 |  |         |----|  |         |  |  |  |     |
-// |       |     |     |     |  | OUT_BLE |----|  |         |  |  |  |     |
-//                     |     |  |         |----|  |         |  |
+// | RST   |     |     |     |  |  BTLDR  |----|  | OUT_USB |      |  |  | RST |
+// | BTCLR | BT1 | BT2 | BT3 |  |         |----|  |         |      |  |  |     |
+// |       |     |     |     |  | OUT_BLE |----|  |         |      |  |  |     |
+//                     |     |  |         |----|  |         | GAME |
                     bindings = <
     &sys_reset &none        &none         &none        &none &bootloader    &none &out OUT_USB &none &none &none &sys_reset
     &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2 &none &none          &none &none        &none &none &none &none
     &none      &none        &none         &none        &none &out OUT_BLE   &none &none        &none &none &none &none
-                                          &none        &none &none          &none &none        &none
+                                          &none        &none &none          &none &none        &tog GAME
+                    >;
+                };
+                game_layer {
+// -----------------------------------------------------------------------------------------
+// | ESC   | Q | W | E | R | T |----| Y | U | I |   O  |  P   |       |
+// | TAB   | A | S | D | F | G |----| H | J | K |   L  |  UP  |       |
+// | SHIFT | Z | X | C | V | B |----| N | M | , | LEFT | DOWN | RIGHT |
+//             | CTRL  | SPC | |----| | ENT | |
+                    bindings = <
+    &kp ESC    &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U &kp I     &kp O    &kp P    &none
+    &kp TAB    &kp A &kp S &kp D &kp F &kp G   &kp H &kp J &kp K     &kp L    &kp UP   &none
+    &kp LSHIFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M &kp COMMA &kp LEFT &kp DOWN &kp RIGHT
+                  &kp LCTRL  &kp SPACE &none   &none &kp RET &none
                     >;
                 };
         };
