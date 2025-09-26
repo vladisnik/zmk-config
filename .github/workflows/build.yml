@@ -1,3 +1,6 @@
+---
+
+name: Build corne ZMK firmware
 on:
   workflow_dispatch:
     inputs:
