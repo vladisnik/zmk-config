@@ -2,11 +2,11 @@ on: [pull_request, workflow_dispatch]
 
 jobs:
   build_firmware_home:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
     with:
       archive_name: firmware_home
   build_firmware_work:
-    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
+    uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
     with:
       config_path: config_work
       archive_name: firmware_work
