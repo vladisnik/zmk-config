@@ -1,12 +1,24 @@
-on: [pull_request, workflow_dispatch]
+on:
+  workflow_dispatch:
+    inputs:
+      keyboardEnv:
+        description: "Which keyboard are we building for?"
+        required: true
+        default: home
+        type: choice
+        options:
+          - home
+          - work
 
 jobs:
   build_firmware_home:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    if: inputs.keyboardEnv == "home"
     with:
       archive_name: firmware_home
   build_firmware_work:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
+    if: inputs.keyboardEnv == "work"
     with:
       config_path: config_work
       archive_name: firmware_work
