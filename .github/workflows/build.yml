@@ -12,13 +12,13 @@ on:
 
 jobs:
   build_firmware_home:
+    if: inputs.keyboardEnv == 'home'
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
-    if: inputs.keyboardEnv == "home"
     with:
       archive_name: firmware_home
   build_firmware_work:
+    if: inputs.keyboardEnv == 'work'
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@v0.3
-    if: inputs.keyboardEnv == "work"
     with:
       config_path: config_work
       archive_name: firmware_work
